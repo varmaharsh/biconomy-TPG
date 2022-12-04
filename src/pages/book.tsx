@@ -51,7 +51,6 @@ const BookInfo = () => {
       if (!signer) {
         await connect();
       }
-      debugger;
       const contract = getContract(signer);
       const value = utils
         .parseEther(((bookInfo.physical_price * 2) / 1000000000).toString())
@@ -59,7 +58,7 @@ const BookInfo = () => {
       const tx = await contract.orderBook(bookId, "1", "0", {
         gasPrice: 100,
         gasLimit: 9000000,
-        value: "30000000",
+        value: value,
       });
       alert("Transaction in progress");
       await tx.wait();
