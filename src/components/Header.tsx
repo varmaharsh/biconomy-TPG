@@ -42,14 +42,18 @@ const Header = ({
               <div className="flex flex-row items-center">
                 <div>
                   Filter By:
-                  {/* <Autocomplete
+                  <select
                     id="Fitler By: "
                     onChange={(item: any) =>
                       setSelectedFilter(item.id.toString())
                     }
-                    options={FILTERS}
-                    renderInput={(params) => <TextField {...params} label="" />}
-                  /> */}
+                    // options={FILTERS}
+                    //renderInput={(params) => <TextField {...params} label="" />}
+                  >
+                    {FILTERS.map((filter) => (
+                      <option value={filter.id}>{filter.label}</option>
+                    ))}
+                  </select>
                 </div>
                 <div className="ml-3">
                   <input
